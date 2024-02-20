@@ -63,6 +63,7 @@ function largestFileSize(files) {
     fileMap.set(file.id, file);
   });
 
+  // Making a tree
   files.forEach((file) => {
     if (file.parent !== -1) {
       fileMap.get(file.parent).children.push(file);
