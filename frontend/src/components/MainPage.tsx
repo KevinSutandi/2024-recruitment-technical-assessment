@@ -29,7 +29,7 @@ export default function MainPage() {
         </p>
         <SearchBar />
         <Dropdown />
-        {/* CourseCard will be used in a for loop to get it from json */}
+        {/* CourseCard will be used in a map to get it from json */}
         <div className='grid grid-cols-3 gap-6'>
           {courses.map((course, index) => (
             <CourseCard
