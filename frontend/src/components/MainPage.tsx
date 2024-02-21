@@ -4,8 +4,9 @@ import SearchBar from './MainPageComponents/SearchBar';
 import Dropdown from './MainPageComponents/Dropdown';
 import CourseCard from './MainPageComponents/CourseCard';
 import courses from '../../courses.json';
+import { PopupOpenType } from '@/util/types';
 
-export default function MainPage() {
+export default function MainPage({ handlePopUpOpen }: PopupOpenType) {
   const [isUnilectivesClicked, setIsUnilectivesClicked] = useState(false);
 
   const handleUnilectivesClick = () => {
@@ -27,7 +28,7 @@ export default function MainPage() {
         <p className='font-bold'>
           Your one-stop shop for UNSW course and elective reviews.
         </p>
-        <SearchBar />
+        <SearchBar handlePopUpOpen={handlePopUpOpen} />
         <Dropdown />
         {/* CourseCard will be used in a map to get it from json */}
         <div className='grid grid-cols-3 gap-6'>

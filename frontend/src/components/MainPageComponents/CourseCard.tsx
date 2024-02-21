@@ -1,13 +1,5 @@
 import React from 'react';
-
-type CourseCardProps = {
-  coursePrefix: string;
-  courseCode: number;
-  courseTitle: string;
-  averageStars: number;
-  totalReviews: number;
-  offeredTerms: string[];
-};
+import { CourseCardProps } from '@/util/types';
 
 export default function CourseCard({
   coursePrefix,
