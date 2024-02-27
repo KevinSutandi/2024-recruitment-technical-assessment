@@ -9,27 +9,8 @@ export default function CourseCard({
   totalReviews,
   offeredTerms,
 }: CourseCardProps) {
-  const generateStarIcons = (averageStars: number): JSX.Element[] => {
-    const starIcons: JSX.Element[] = [];
-    const maxRating = 5;
-
-    for (let i = 1; i <= maxRating; i++) {
-      if (i <= averageStars) {
-        starIcons.push(
-          <div key={i} className='text-purple-300 text-2xl'>
-            ★
-          </div>
-        );
-      } else {
-        starIcons.push(
-          <div key={i} className='text-gray-200 text-2xl'>
-            ★
-          </div>
-        );
-      }
-    }
-
-    return starIcons;
+  const calculateWidthAverageStars = (averageStars: number): number => {
+    return (averageStars / 5) * 100;
   };
 
   const generateTermBubbles = (offeredTerms: string[]): JSX.Element[] => {
@@ -58,7 +39,15 @@ export default function CourseCard({
         </p>
         {/* Star Rating */}
         <div className='flex flex-col'>
-          <div className='flex flex-row'>{generateStarIcons(averageStars)}</div>
+          <div className='relative'>
+            <div
+              className='absolute text-xl text-purple-400 overflow-hidden'
+              style={{ width: `${calculateWidthAverageStars(averageStars)}%` }}
+            >
+              ★★★★★
+            </div>
+            <p className='text-xl text-gray-200'>★★★★★</p>
+          </div>
           <p className='text-xs text-gray-400'>{totalReviews} Reviews</p>
         </div>
       </div>
